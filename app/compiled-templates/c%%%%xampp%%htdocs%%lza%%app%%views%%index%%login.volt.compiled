@@ -1,0 +1,32 @@
+<head>
+    <title>Admin sadaļa</title>
+
+    <?= $this->assets->outputCss() ?>
+    <?= $this->assets->outputJs() ?>
+</head>
+<body  onload="activeMenu('<?= $active ?>')">
+  <?= $this->partial('index/header') ?>
+  <div class="main">
+    <div class="admin_log">
+      <h2>Admin sadaļa</h2>
+    	<?= $this->tag->form(['verify_login', 'method' => 'post']) ?>
+        <fieldset>
+        <table>
+            <tr>
+              <td><label for="email">Email</label></td>
+              <td><?= $this->tag->emailField(['email']) ?></td>
+            </tr>
+            <tr>
+              <td><label for="password">Password</label></td>
+              <td><?= $this->tag->passwordField(['password', 'size' => 32]) ?></td>
+            </tr>
+        </table>
+        <div class="control-group">
+            <?= $this->tag->submitButton(['Ienākt', 'class' => 'btn btn-primary']) ?>
+        </div>
+        </fieldset>
+      <?= $this->tag->endForm() ?>
+    </div>
+  </div>
+  <?= $this->partial('index/footer') ?>
+</body>

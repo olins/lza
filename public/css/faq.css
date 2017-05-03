@@ -1,0 +1,55 @@
+.charts-bar {
+  flex: 1;
+  display: flex;
+  flex-flow: row;
+  margin: 0.625rem;
+  height: 98%;
+}
+
+.charts-bar-block {
+  flex: 1;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  padding: 5px;
+  border: 1px solid transparent;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  margin: 0.625rem;
+  height: 98%;
+}
+
+.main h1 {
+  margin: 0 0rem;
+   font-family: "impact, charcoal, arial black, sans-serif";
+   font-size: 32px;
+   color: "#333333";
+   font-weight: bold;
+}
+
+.hidden {
+  display:none;
+  visibility:hidden;
+}
+
+.show {
+  display:none;
+  visibility:hidden;
+}
+
+.targets{
+  margin: 0.625rem;
+}
+
+.interval_list{
+  margin: 0.625rem;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  width: 98%;
+}
