@@ -1,0 +1,28 @@
+<?= $this->tag->form(['index/saveNewUser']) ?>
+
+  <h2>Create User</h2>
+<fieldset>
+<table>
+    <tr>
+      <td><label for="name">Name</label></td>
+      <td><?= $this->tag->textField(['name', 'size' => 32]) ?></td>
+    </tr>
+    <tr>
+      <td><label for="surname">Surname</label></td>
+      <td><?= $this->tag->textField(['surname', 'size' => 32]) ?></td>
+    </tr>
+    <tr>
+      <td><label for="email">Email</label></td>
+      <td><?= $this->tag->emailField(['email']) ?></td>
+    </tr>
+    <tr>
+      <td><label for="password">Password</label></td>
+      <td><?= $this->tag->passwordField(['password', 'size' => 32]) ?></td>
+    </tr>
+</table>
+<div class="control-group">
+    <?= $this->tag->submitButton(['Create', 'class' => 'btn btn-primary']) ?>
+</div>
+</fieldset>
+
+<?= $this->tag->endform() ?>

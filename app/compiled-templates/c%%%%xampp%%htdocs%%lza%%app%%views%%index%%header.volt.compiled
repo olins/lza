@@ -1,0 +1,34 @@
+<div class="logo">
+  <?= $this->tag->image(['/img/LZA_logo.jpg']) ?>
+  <h1 class="logo_part">Latvijas Zinātņu akadēmija</h1>
+</div>
+<div class="container" id="main" role="main">
+  <ul class="menu">
+      <li><?= $this->tag->linkTo(['/', 'Sākums', 'class' => 'link-index']) ?></li>
+      <li><?= $this->tag->linkTo(['news', 'Jaunumi', 'class' => 'link-news']) ?></li>
+      <li><?= $this->tag->linkTo(['aboutus/documents', 'Par Mums', 'class' => 'link-about']) ?>
+          <ul class="submenu">
+              <li><?= $this->tag->linkTo(['aboutus/history', 'Vēsture']) ?></li>
+              <li><?= $this->tag->linkTo(['aboutus/documents', 'Dokumenti']) ?></li>
+              <li><?= $this->tag->linkTo(['/', 'Prezidents']) ?></li>
+              <li><?= $this->tag->linkTo(['/', 'Struktūra']) ?></li>
+              <li><?= $this->tag->linkTo(['/', 'Nodaļas']) ?></li>
+              <li><?= $this->tag->linkTo(['/', 'Budžets']) ?></li>
+              <li><?= $this->tag->linkTo(['/', 'Publiskais iepirkums']) ?></li>
+              <li><?= $this->tag->linkTo(['/', 'Simbolika']) ?></li>
+          </ul>
+      </li>
+      <li><?= $this->tag->linkTo(['/', 'Akadēmijas Locekļi', 'class' => 'link-members']) ?>
+          <ul class="submenu">
+              <li><a href="#">ĪSTENIE LOCEKĻI</a></li>
+              <li><a href="#">GODA LOCEKĻI</a></li>
+              <li><a href="#">ĀRZEMJU LOCEKĻI</a></li>
+              <li><a href="#">KORESPONDĒTĀJLOCEKĻI</a></li>
+              <li><a href="#">GODA DOKTORI</a></li>
+          </ul>
+      </li>
+      <li><?= $this->tag->linkTo(['/', 'Starptautiskā sadarbība', 'class' => 'link-international']) ?></li>
+      <li><?= $this->tag->linkTo(['/', 'Publikācijas', 'class' => 'link-contacts']) ?></li>
+      <li><?= $this->tag->linkTo(['/', 'Zinātņu nodaļas', 'class' => 'link-map']) ?></li>
+  </ul>
+</div>

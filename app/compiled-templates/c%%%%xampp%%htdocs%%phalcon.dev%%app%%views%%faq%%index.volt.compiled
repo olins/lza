@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<?= $this->assets->outputCss() ?>
+		<?= $this->assets->outputJs() ?>
+	</head>
+	<body>
+		<div class="charts-bar">
+			<div class="chartContainerTotal charts-bar-block" id="chartContainerTotal" style="height: 300px; width: 100%;">
+			</div>
+			<div class="chartContainerUsers charts-bar-block" id="chartContainerUsers" style="height: 300px; width: 100%;">
+			</div>
+		</div>
+		<div class="main">
+			<h1>Initials</h1>
+			<?= $this->tag->form(['faq/update', 'method' => 'post']) ?>
+				<table>
+					<thead>
+						<th>Day</th>
+						<?php foreach ($users as $user) { ?>
+							<th><?= $user->name ?></th>
+						<?php } ?>
+					</thead>
+					<tbody>
+						<?php foreach ($dates as $date) { ?>
+							<tr>
+								<td><?= $date ?></td>
+								<?php foreach ($users as $user) { ?>
+									<?php foreach ($faqs as $faq) { ?>
+										<?php if ($faq->user == $user->id && $faq->date == $date) { ?>
+											<td onclick="showFaq('<?= $date ?>','<?= $user->id ?>')">
+												<span class="faq" id="user-<?= $date ?>-<?= $user->id ?>">
+													<?= $faq->faq_count ?>
+												</span>
+												<?php $unique_id = 'faq-value-' . $faq->date . '-' . $user->id; ?>
+												<?= $this->tag->numericField([$unique_id, 'value' => $faq->faq_count, 'class' => 'hidden', 'onkeydown' => 'changeFaq(\'' . $date . '\',\'' . $user->id . '\')']) ?>
+											</td>
+										<?php } ?>
+									<?php } ?>
+								<?php } ?>
+							</tr>
+						<?php } ?>
+						<tr>
+							<td>Total</td>
+							<?php foreach ($users as $user) { ?>
+								<?php foreach ($user_faq_total as $user_total) { ?>
+									<?php if ($user_total->user == $user->id) { ?>
+										<td>
+											<span class="total" id="total-user-<?= $user->id ?>">
+												<?= $user_total->total ?>
+											</span>
+										</td>
+									<?php } ?>
+								<?php } ?>
+							<?php } ?>
+						</tr>
+						<tr>
+							<td>Target</td>
+							<?php foreach ($users as $user) { ?>
+								<td><span class="target"><?= $target->target ?></span></td>
+							<?php } ?>
+						</tr>
+					</tbody>
+				</table>
+			<?= $this->tag->endForm() ?>
+			<div class="targets">
+				<label for="target">Target</label>
+				<?= $this->tag->select(['target', $targets, 'using' => ['id', 'target'], 'value' => $target->id, 'onchange' => 'changeTarget(this.value)']) ?>
+			</div>
+			<div class="interval_list">
+				<?= $this->tag->form(['faq', 'method' => 'post']) ?>
+					<label for="interval_list">Interval List</label>
+					<?= $this->tag->select(['interval_list', $interval_list, 'using' => ['id', 'interval'], 'value' => $faq_interval->id, 'onchange' => 'this.form.submit()']) ?>
+				<?= $this->tag->endForm() ?>
+			</div>
+			<div class="serviceNow">
+				<?= $serviceNow ?>
+			</div>
+		</div>
+	</body>
+</html>

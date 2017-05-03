@@ -1,0 +1,234 @@
+body {
+  display: flex;
+  flex-flow: column;
+  background-image: url("../img/lza_black.jpg");
+  background-size: 100% 100%;
+}
+
+fieldset {
+  background: #d9d9d9;
+  border-radius: 5px;
+}
+
+td {
+  width: 70px;
+  height: 70px;
+  padding: 10 10px;
+}
+.news_main h3 {
+  display: block;
+  width:100%;
+  text-align:center;
+}
+
+.today {
+  color: #fff;
+  background: #000;
+  text-shadow: 1px 1px 6px #fff;
+}
+.tbl {
+  margin: 20 0px;
+}
+
+.btn {
+  display: inline-flex;
+  background: #4CAF50;
+  background-image: -webkit-linear-gradient(top, #0272a7, #0272a7);
+  background-image: -moz-linear-gradient(top, #0272a7, #0272a7);
+  background-image: -ms-linear-gradient(top, #0272a7, #0272a7);
+  background-image: -o-linear-gradient(top, #0272a7, #0272a7);
+  background-image: linear-gradient(to bottom, #0272a7, #0272a7);
+  -webkit-border-radius: 22;
+  -moz-border-radius: 22;
+  border-radius: 22px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #6FBF72;
+  background-image: -webkit-linear-gradient(top, #6FBF72, #3498db);
+  background-image: -moz-linear-gradient(top, #6FBF72, #3498db);
+  background-image: -ms-linear-gradient(top, #6FBF72, #3498db);
+  background-image: -o-linear-gradient(top, #6FBF72, #3498db);
+  background-image: linear-gradient(to bottom, #6FBF72, #3498db);
+  text-decoration: none;
+}
+
+.logo {
+  display: flex;
+  flex-flow: row;
+  margin-left: 5%;
+}
+
+.logo h1 {
+  margin: 1%;
+}
+
+.logo_part {
+  flex:1;
+}
+
+.catalog_list {
+  display: flex;
+  flex-flow: row;
+  margin-left: 5%;
+}
+
+.catalog {
+  flex:1;
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px;
+  background: #dddddd;
+  max-width: 50%;
+  border-radius: 5px;
+  margin: 1%;
+}
+
+.catalog_row {
+  display: flex;
+  flex-flow: row;
+  flex:1;
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px;
+  background: #dddddd;
+  max-width: 50%;
+  border-radius: 5px;
+  margin: 1%;
+}
+
+.social {
+  margin-right: 1%;
+  margin-bottom: 1%;
+  flex: 1;
+}
+
+.social_tab {
+  margin-top: 2%;
+}
+
+.news_list {
+  flex: 5;
+  display: flex;
+  flex-flow: column;
+  margin-left: 6%;
+}
+
+.news {
+  flex:1;
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px;
+  background: #dddddd;
+  border-radius: 5px;
+  margin: 1%;
+}
+
+.footer {
+  background: #d9d9d9;
+  align-self: flex-end;
+  display: flex;
+  flex-flow: row;
+}
+
+.f_block {
+  flex:1;
+  text-align:left;
+}
+
+.f_block span {
+  text-align:left;
+}
+
+.main {
+  flex: 6;
+}
+
+.main_list {
+  display: flex;
+  flex-flow: row;
+}
+
+.main_list_column {
+  display: flex;
+  flex-flow: column;
+}
+
+.main_list_row {
+  display: flex;
+  flex-flow: column;
+}
+
+.news_main {
+  display: flex;
+  flex-flow: column;
+}
+
+.paging {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-flow: row;
+}
+
+.admin_log {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ekosoc img {
+    width: 100%;
+}
+
+.ekosoc {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.letonika img {
+    width: 100%;
+}
+
+.letonika {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.news table {
+  width:100%;
+}
+
+.news_article {
+  flex:1;
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px;
+  background: #dddddd;
+  border-radius: 5px;
+  margin: 1%;
+  display: flex;
+  flex-flow: row;
+}
+
+.news_article_block {
+  display: flex;
+  flex-flow: row;
+}
+
+.article {
+  margin-left: 5%;
+}

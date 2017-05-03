@@ -1,0 +1,43 @@
+<head>
+    <title>Stars</title>
+
+    <?= $this->assets->outputCss() ?>
+    <?= $this->assets->outputJs() ?>
+</head>
+<h2> Ratings </h2>
+<div class="tbl">
+    <table>
+      <thead>
+        <th>Name</th>
+        <?php foreach ($dates as $week => $date) { ?>
+          <th <?= ($date->date == $today ? 'class="today"' : '') ?>><?= $date->month ?> week - <?= $week ?></th>
+        <?php } ?>
+      </thead>
+      <body>
+        <?php foreach ($users as $user) { ?>
+          <tr>
+            <td><?= $user->name ?></td>
+            <?php foreach ($dates as $date) { ?>
+              <?php foreach ($ratings as $rating) { ?>
+                <?php if ($rating->user == $user->id && $rating->date == $date->date) { ?>
+                  <?php if ($rating->rating == 1) { ?>
+                    <td class="starManage" onclick="starRemove('<?= $date->date ?>','<?= $user->id ?>')">
+                      <span class="star" id="user-<?= $date->date ?>-<?= $user->id ?>">
+                        <?= $this->tag->image(['/img/star.png']) ?>
+                      </span>
+                    </td>
+                  <?php } else { ?>
+                    <td class="starManage" onclick="starAdd('<?= $date->date ?>','<?= $user->id ?>')">
+                      <span class="star" id="user-<?= $date->date ?>-<?= $user->id ?>">
+                      </span>
+                    </td>
+                  <?php } ?>
+                <?php } ?>
+              <?php } ?>
+            <?php } ?>
+          </tr>
+        <?php } ?>
+      </body>
+    </table>
+</div>
+<?= $this->tag->linkTo(['newUser', 'Add user', 'class' => 'btn']) ?>

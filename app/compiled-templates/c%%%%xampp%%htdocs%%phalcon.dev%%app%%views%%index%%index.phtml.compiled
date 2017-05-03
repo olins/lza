@@ -1,0 +1,21 @@
+<h2> Ratings </h2>
+<div>
+    <table>
+      <thead>
+        <th><th>
+        <?php foreach ($dates as $date) { ?>
+          <th><?= $date ?></th>
+        <?php } ?>
+      </thead>
+      <body>
+        <?php foreach ($users as $user) { ?>
+          <tr>
+            <td><?= $user->name ?><td>
+            <?php foreach ($dates as $date) { ?>
+              <td><img src="/img/star.png"></td>
+            <?php } ?>
+          </tr>
+        <?php } ?>
+      </body>
+    </table>
+</div>

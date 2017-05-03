@@ -1,0 +1,319 @@
+<html lang="en" dir="ltr" class=" ltr"><head><title>ServiceNow</title><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta http-equiv="cache-control" content="public"><link rel="shortcut icon" href="favicon.ico?v=4"><link type="text/css" rel="stylesheet" href="/styles/css_includes.cssx?v=09-28-2016_1637&amp;c=2015-04-13_23:42:53_f904c783db4c3e00ea83f70dbf961984&amp;theme="><script type="text/javascript" data-description="globals population">
+	window.NOW = window.NOW || {};
+	var g_loadTime = new Date();
+	var lastActivity = new Date();
+	var g_lang = 'en';
+	var g_system_lang = 'en';
+	var g_enhanced_activated = 'true';
+	  var g_popup_timeout = parseInt(100);
+	var g_export_warn_threshold = parseInt(10000);
+	  var g_event_handler_ids = {};
+	var g_event_handlers = [];
+	var g_event_handlers_onLoad = [];
+	var g_event_handlers_onSubmit = [];
+	var g_event_handlers_onChange = [];
+	var g_event_handlers_onCellEdit = {};
+	var g_user_date_time_format = "yyyy-MM-dd HH:mm:ss";
+	var g_user_date_format = "yyyy-MM-dd";
+	var g_user_decimal_separator = ".";
+	var g_user_grouping_separator = ",";
+	var g_glide_list_separator = ", ";
+	var g_tz_offset = 3600000;
+	  var g_tz_user_offset = true;
+	var g_first_day_of_week = parseInt(1, 10);
+	var g_date_picker_first_day_of_week = parseInt(0, 10);
+	  var g_full_calendar_edit = true;
+	var g_submitted = false;
+	var g_max_table_length = 80;
+	var g_fontSizePreference = "";
+	var g_fontSize = "10pt";
+	// use to be the sys_property glide.ui.js_error_notify, hard coded for PRB603998
+	var g_jsErrorNotify = "true";
+	var g_cancelPreviousTransaction = true;
+	var g_text_direction = "ltr";
+	var g_glide_list_filter_max_length =  parseInt("0", 10);
+	var g_accessibility = false;
+	var g_detail_row = false;
+	window.g_load_functions = [];
+	window.g_render_functions = [];
+	window.g_late_load_functions = [];
+
+	
+	var g_ck = '40b37093db007e00ea83f70dbf9619f9513fd79706dae8c104f28f459bf801845e38b346';
+	
+
+	
+	var g_acWaitTime = parseInt(250);
+	
+
+	var g_autoRequest = '';
+	window.NOW.dateFormat = {shortDates: false, timeAgo: false, dateBoth: false};
+	window.NOW.listTableWrap = true;
+	window.NOW.compact = false;
+  	window.NOW.templateToggle = false;
+	window.NOW.tabbed = false;
+	window.NOW.permalink = true;
+	window.NOW.useSimpleStorage = true;
+	window.NOW.simpleStorageSynch = "d14ed9cedbf7a600ea83f70dbf9619aa";
+	window.NOW.language =  'en';
+	window.NOW.listOpenInAppTab = false;
+	window.NOW.floatingScrollbars = false;
+	
+	window.NOW.user = {};
+	window.NOW.user.preferences = [];
+	window.NOW.user.roles = '';
+	window.NOW.user.allRoles = '';
+	window.NOW.user.userID = '5136503cc611227c0183e96598c4f706';
+	window.NOW.user.departmentID = '221db0edc611228401760aec06c9d929';
+	window.NOW.user.firstName = '';
+	window.NOW.user.lastName = 'Guest';
+	window.NOW.user.name = 'guest';
+	</script><script data-comment="GlideUser initialization">(function() {
+		 g_render_functions.push(setGlideUser);
+		function setGlideUser() {
+			if (window.g_user || !window.GlideUser)
+		return;
+
+		window.g_user = new GlideUser(NOW.user.name,
+			  NOW.user.lastName,
+			  NOW.user.firstName,
+			  NOW.user.roles,
+			  NOW.user.userID,
+			  NOW.user.departmentID);
+		window.g_user.setRoles(NOW.user.allRoles, true);
+		}
+	})();</script><script type="text/javascript" src="/scripts/js_includes.jsx?v=09-28-2016_1637&amp;lp=Wed_Sep_14_00_05_23_PDT_2016&amp;c=10_48"></script><script type="text/javascript" src="/scripts/js_includes_customer.jsx?v=09-28-2016_1637&amp;lp=Wed_Sep_14_00_05_23_PDT_2016&amp;c=10_48"></script><script type="text/javascript" data-comment="navpage layout preferences, onfocus observation">/**
+	* Every window needs to observe these events.
+	*/
+	if (Prototype.Browser.IE && !isMSIE9) {
+		document.onfocusout = function() { CustomEvent.fireTop(GlideEvent.WINDOW_BLURRED, window); };
+		document.onfocusin = function() { CustomEvent.fireTop(GlideEvent.WINDOW_FOCUSED, window); };
+	} else {
+		Event.observe(window, 'blur', function() { CustomEvent.fireTop(GlideEvent.WINDOW_BLURRED, window); });
+		Event.observe(window, 'focus', function() { CustomEvent.fireTop(GlideEvent.WINDOW_FOCUSED, window); });
+	}</script><script type="text/javascript">g_swLoadTime = new StopWatch(g_loadTime);
+
+    if (window.CustomEvent)
+        CustomEvent.fireAll("ck_updated", "40b37093db007e00ea83f70dbf9619f9513fd79706dae8c104f28f459bf801845e38b346");
+
+    Event.observe(window, 'load', function() {
+      if (typeof g_ck != 'undefined') {
+        CustomEvent.observe("ck_updated", function(ck) { g_ck = ck; });
+        CustomEvent.fireAll("ck_updated", "40b37093db007e00ea83f70dbf9619f9513fd79706dae8c104f28f459bf801845e38b346");}try {
+              var helpico=getTopWindow().document.getElementById("help_ico");
+              
+              if (helpico) {
+                var urlname=window.location.pathname.split("?");
+                var search_str = window.location.search;
+                
+                // if this is a form, extract the record's sys_id...
+                var sys_id_loc = search_str.search(/sys_id=[0-9a-f]{32}/i);
+                var sys_id_str = (sys_id_loc != -1) ? search_str.substr(sys_id_loc, 39) : null;
+                
+                // make the URL to our context help processor...
+                var url_search = "?sysparm_url=" + urlname[0];
+                if (sys_id_loc != -1)
+                   url_search += "&" + sys_id_str;
+
+               	helpico.href="context_help.do" + url_search;                
+              }
+            } catch (exception) {}synchCache();
+      pageLoaded();
+    });
+    
+    function synchCache() {
+      try {
+        var w = getTopWindow();
+        if (w.g_cache_message)
+          w.g_cache_message.stamp("d14ed9cedbf7a600ea83f70dbf9619aa");
+  
+        if (w.g_cache_td)
+          w.g_cache_td.stamp("0a1509c7dbc83e00ea83f70dbf961995");
+      } catch(e) {}
+    }</script><script type="text/javascript" data-description="font size">window.g_fontSizeMessage = "Font size";	
+	if (g_fontSizePreference)
+		setPreferredFontSize(0);  // adjust to user preference</script><!--googleoff: all--><noscript>This site requires JavaScript to be enabled</noscript> <!--googleon: all--></head><body ontouchend="CustomEvent.fireAll('body_clicked', event);" onfocus="popupClose();" onclick="CustomEvent.fireAll('body_clicked', event);"><div class="body-vertical-spacer"></div><div class="outputmsg_div"><div class="outputmsg_container" style="display:none" id="output_messages"><img class="outputmsg_close" src="images/x.gifx" onclick="GlideUI.get().clearOutputMessages(this)"><div class="outputmsg_div"></div></div><script>addRenderEvent(function() {CustomEvent.fire('glide_optics_inspect_update_watchfield', '');});</script><span class="ui_notification" data-type="session_change" data-text="" data-attr-session_domain="global"></span></div><input type="hidden" value="true" id="public-page"><input type="hidden" value="true" id="isSelect2"><link type="text/css" rel="stylesheet" href="/styles/listDND.cssx?v=09-28-2016_1637"><input name="sysparm_page_num" type="hidden" id="sysparm_page_num"><div align="right" class="print_hide" style="height: 50px"><table><tbody><tr><td align="right"><div class="print_hide text-align-right" style="height: 20px"><button type="submit" onclick="javascript: window.print();"><img src="images/printer.gifx"><span>Click to Print</span></button></div></td></tr></tbody></table></div><link type="text/css" rel="stylesheet" href="/styles/pivot_v2.cssx?v=09-28-2016_1637"><link type="text/css" rel="stylesheet" href="/styles/single_score.cssx?v=09-28-2016_1637"><link type="text/css" rel="stylesheet" href="/styles/highcharts_export.cssx?v=09-28-2016_1637"><link type="text/css" rel="stylesheet" href="/styles/hc_legend_extension.cssx?v=09-28-2016_1637"><table border="0" class="wide"><tbody><tr><td align="center" valign="top" style="direction: ltr;"><span id="partialPage:theReport"><!--STARTpartialPage:theReport--><input type="hidden" class="sysparm_media" value="print"><div class="report_content"><script type="text/javascript" src="/scripts/GlideV2ChartingIncludes.jsx?v=09-28-2016_1637"></script><div align="left"><h1>Riga New Incidents</h1></div><div tab_rows_v2="0" tab_caption="Incidents" id="80b37853db007e00ea83f70dbf9619af_list" class="tabs2_list"><div type="list_div" class="list_div " id="80b37853db007e00ea83f70dbf9619af"><style>TD.vt
+	{   
+		white-space: normal;
+    }
+	TABLE
+	{
+		background-color: transparent;
+	}</style><a name="80b37853db007e00ea83f70dbf9619af_hash" tabindex="-1"></a><table glide_list_has_hierarchy="false" total_rows="0" glide_list_edit_ref_qual_tag="" glide_list_has_actions="false" list_name="incident" parsed_choice_query="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xml table=&quot;incident&quot;&gt;&lt;item endquery=&quot;false&quot; field=&quot;&quot; goto=&quot;false&quot; newquery=&quot;false&quot; operator=&quot;=&quot; or=&quot;false&quot; value=&quot;&quot;/&gt;&lt;/xml&gt;" data-list_id="80b37853db007e00ea83f70dbf9619af" id="80b37853db007e00ea83f70dbf9619af_table" class="data_list_table wideDataList list_table " glide_list_has_header="true" can_hide_nav="false" glide_list_can_delete="false" glide_list_edit_id="80b37853db007e00ea83f70dbf9619af" glide_list_edit_type="" query="assignment_group=95ec11ca377ac200cbbd70f543990e38^state=1^EQ^ORDERBYpriority" glide_list_omit_links="true" sort="incident.priority" glide_list_edit_insert_row="false" glide_list_query="assignment_group=95ec11ca377ac200cbbd70f543990e38^state=1^caller_id=5136503cc611227c0183e96598c4f706^ORopened_by=5136503cc611227c0183e96598c4f706^ORwatch_listCONTAINS5136503cc611227c0183e96598c4f706^ORDERBYpriority" glide_list_can_create="true" rows_per_page="999999999" grand_total_rows="0" maintain_order="false" parsed_query="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xml table=&quot;incident&quot;&gt;&lt;item display_table=&quot;sys_user_group&quot; display_value=&quot;ServiceNow_IT-Support Riga&quot; endquery=&quot;false&quot; field=&quot;assignment_group&quot; goto=&quot;false&quot; newquery=&quot;false&quot; operator=&quot;=&quot; or=&quot;false&quot; value=&quot;95ec11ca377ac200cbbd70f543990e38&quot;/&gt;&lt;item endquery=&quot;false&quot; field=&quot;state&quot; goto=&quot;false&quot; newquery=&quot;false&quot; operator=&quot;=&quot; or=&quot;false&quot; value=&quot;1&quot;/&gt;&lt;item endquery=&quot;true&quot; field=&quot;&quot; goto=&quot;false&quot; newquery=&quot;false&quot; operator=&quot;=&quot; or=&quot;false&quot; value=&quot;&quot;/&gt;&lt;item endquery=&quot;false&quot; field=&quot;&quot; goto=&quot;false&quot; newquery=&quot;false&quot; operator=&quot;ORDERBY&quot; or=&quot;false&quot; value=&quot;priority&quot;/&gt;&lt;/xml&gt;" first_row="1" last_row="0" style="width: 100%; " glide_table="incident" sort_dir="ASC"><thead><tr class="list_header " id="hdr_80b37853db007e00ea83f70dbf9619af"><th></th><th name="number" title="" align="left" class="list_hdrcell_nosort " scope="col">Number</th><th name="caller_id" align="left" title="Person who reported or is affected by this incident" class="list_hdrcell_nosort " scope="col">Caller</th><th name="short_description" align="left" title="" class="list_hdrcell_nosort " scope="col">Short description</th><th name="category" align="left" title="" class="list_hdrcell_nosort " scope="col">Category</th><th name="subcategory" align="left" title="" class="list_hdrcell_nosort " scope="col">Subcategory</th><th name="priority" align="left" title="Sequence in which an Incident or Problem needs to be resolved, based on impact and urgency" class="list_hdrcell_nosort " scope="col">Priority</th><th name="state" align="left" title="" class="list_hdrcell_nosort " scope="col">State</th><th name="assigned_to" align="left" title="Person primarily responsible for working this task" class="list_hdrcell_nosort " scope="col">Assigned to</th><th name="sys_updated_on" align="left" title="" class="list_hdrcell_nosort " scope="col">Updated</th><th name="assignment_group" align="left" title="" class="list_hdrcell_nosort " scope="col">Assignment group</th><th name="location" align="left" title="Where the caller or service is located" class="list_hdrcell_nosort " scope="col">Location</th></tr></thead><tbody class="list2_body" tabindex="0"><tr class="list2_no_records"><td colspan="99">No records to display</td></tr></tbody></table><a id="80b37853db007e00ea83f70dbf9619af_bottom" href="javascript:void(0)"></a></div></div><script>addLoadEvent(function() {
+			CustomEvent.observe("print.grouped.headers", GlideList2.breakGroupHeader);
+		});</script><script type="text/javascript">//Deactivate charting option for report variables columns in list (PRB610817)"
+       $j("table th[name^='variables.']").attr("groupable", "false");addLateLoadEvent(function() {
+			hideReportIsLoading(findGridWindowFromElementID('80b37853db007e00ea83f70dbf9619af'));
+		});</script></div><div style="border:none; visibility:hidden"><form name="sys_personalize_ajax" action="slushbucket.do" style="display:inline" id="sys_personalize_ajax" method="GET"><input name="sysparm_ck" id="sysparm_ck" type="hidden" value="40b37093db007e00ea83f70dbf9619f9513fd79706dae8c104f28f459bf801845e38b346"><input type="HIDDEN" name="sysparm_referring_url" value="sys_report_display.do?sysparm_report_id=51af0bc6db6b9a0095bffddabf961943"><input type="HIDDEN" name="sysparm_view" value="RPT51af0bc6db6b9a0095bffddabf961943"><input type="HIDDEN" name="sysparm_list" value="not_set"><input type="HIDDEN" name="sysparm_form" value="not_set"></form></div><div style="border:none; visibility:hidden"><form name="reportformpaging" action="sys_report_display.do" style="display:inline" id="reportformpaging" method="GET"><input name="sysparm_ck" id="sysparm_ck" type="hidden" value="40b37093db007e00ea83f70dbf9619f9513fd79706dae8c104f28f459bf801845e38b346"><input name="sysparm_report_id" id="sysparm_report_id" type="HIDDEN" value="51af0bc6db6b9a0095bffddabf961943"></form></div><!--ENDpartialPage:theReport--></span></td></tr></tbody></table><div style="border:none; visibility:hidden"><form name="sys_personalize" action="slushbucket.do" style="display:inline" method="GET"><input name="sysparm_ck" id="sysparm_ck" type="hidden" value="40b37093db007e00ea83f70dbf9619f9513fd79706dae8c104f28f459bf801845e38b346"><input type="hidden" name="sysparm_referring_url" value="sys_report_display.do?sysparm_report_id=51af0bc6db6b9a0095bffddabf961943"><input type="hidden" name="sysparm_view" value="RPT51af0bc6db6b9a0095bffddabf961943"></form></div><script>(function() {
+        addLateLoadEvent(throwFrameLoaded);
+        // find if padding is needed
+        var pad = (isMSIE6 || isMSIE7 || navigator.userAgent.indexOf('MSIE 8') != -1) ? 1 : 0;
+        function throwFrameLoaded() { 
+            try {
+                if (window.parent.CustomEvent) {
+                    // history suggests that if we don't size it down on page load,
+                    // when we check the height it will show the previous page's height
+                    window.parent.CustomEvent.fire('content_frame.loaded', self.name, 10);
+                    window.parent.CustomEvent.fire('content_frame.loaded', self.name, getPageHeight()); 
+                }
+            } catch (e) {}
+        }
+        function throwFrameSized() { 
+            try {
+                if (window.parent.CustomEvent) {
+                    // IE9/IE10: resize events will be continuously triggered when there is a difference between document.body.scrollHeight and window.frameElement.height
+                    // to solve this issue, we do not fire event if the height we are going to set is the same as the height obtained after the previous fired event
+                    var previousHeight = window["g_iframe_height"];
+                    var pageHeight = getPageHeight();
+                    if (previousHeight != pageHeight) {
+                        window.parent.CustomEvent.fire('content_frame.resized', self.name, pageHeight);
+                        // IE9/IE10: page height may be changed again after the above firing. So we have to call getPageHeight() to get the new height after the above event has been fired.
+                        window["g_iframe_height"] = getPageHeight();
+                    }
+                }
+            } catch (e) {}
+        }
+	
+        function throwFrameSizedSmaller(){
+            try {
+                if (window.parent.CustomEvent) {
+                    window.parent.CustomEvent.fire('content_frame.loaded', self.name, getPageHeight(true)); 
+                }
+            } catch (e) {}
+        }
+	
+        /**
+         * Simply speaking, scrollHeight and offsetHeight work differently on different browsers
+         * and in and out of quirks mode. IE9 has bugs that do not report them correctly even if
+         * you pick the right one, so we've built some extra controls.
+         */
+        function getPageHeight(resizeSmall) {
+            var popupElement, popupHeight;
+            // first, look for popups
+            var popups = $$('body > div.popup, .modal.in > .modal-dialog');
+            if (popups.length > 0) {
+                popupElement = popups[0];
+                popupHeight = popupElement.scrollHeight + popupElement.offsetTop;
+                //padding is needed or else the bottom border of the popup will be missing
+                return (document.body.scrollHeight > popupHeight ? document.body.scrollHeight : popupHeight) + pad;
+            }
+            // then, look for form elements
+            // use more specific selector to reduce browser response time
+            if ($$('body > div.section_header_content_no_scroll').length > 0)
+                return $$('body > div.section_header_content_no_scroll')[0].scrollHeight;
+            // then, look for touch scroll elements *CALGARY and forward*
+            if ($$('body > .touch_scroll').length > 0)
+                return $$('body > .touch_scroll')[0].scrollHeight; 
+            // then, get the normal page height
+            if (document.body.scrollHeight || document.documentElement.scrollHeight) {
+                if (!resizeSmall){
+                    if(document.body.scrollHeight > document.documentElement.scrollHeight)
+                        return document.body.scrollHeight;
+                    else
+                        return document.documentElement.scrollHeight;
+                }
+                else{
+                    if(document.documentElement.scrollHeight > document.body.scrollHeight)
+                        return document.body.scrollHeight;
+                    else
+                        return document.documentElement.scrollHeight;
+                }
+            }
+            return document.body.offsetHeight;
+        }
+        // start observing only after page has been loaded to avoid handling large number of resize events especially on IE 7 and IE 8
+        addAfterPageLoadedEvent(function() {
+            CustomEvent.observe('frame.resized', throwFrameSized);
+            CustomEvent.observe('frame.resized.smaller', throwFrameSizedSmaller);
+            CustomEvent.observe('partial.page.reload', throwFrameLoaded); // specifically, reports and lists that cause the page to shrink
+            Event.observe(document.onresize ? document : window, "resize", throwFrameSized);
+            _frameChanged();
+        });
+    })();</script><script type="text/javascript" src="/scripts/transaction_scope_includes.jsx?v=09-28-2016_1637"></script><script>if ('') 
+			GlideTransactionScope.setTransactionScope('');
+		if ('') 
+			GlideTransactionScope.setRecordScope('');
+		if (typeof g_form != 'undefined')
+			$(g_form.getFormElement()).fire('glidescope:initialized', {gts : GlideTransactionScope});</script><script type="text/javascript" src="/scripts/js_includes_last.jsx?v=09-28-2016_1637&amp;lp=Wed_Sep_14_00_05_23_PDT_2016&amp;c=10_48"></script><script type="text/javascript" src="/scripts/partial_page.jsx?v=09-28-2016_1637"></script><script type="text/javascript" src="/scripts/js_includes_listv2.jsx?v=09-28-2016_1637&amp;lp=Wed_Sep_14_00_05_23_PDT_2016&amp;c=10_48"></script><script type="text/javascript" src="/scripts/js_includes_sorting_new.jsx?v=09-28-2016_1637&amp;lp=Wed_Sep_14_00_05_23_PDT_2016&amp;c=10_48"></script><script type="text/javascript">addLoadEvent(function() {
+        GlideUI.get().fireNotifications();
+    });
+
+    addLoadEvent(function() {  
+       // changeHandlerHack
+       jslog("fireAllChangeHandlers start");
+       fireAllChangeHandlers();
+       jslog("fireAllChangeHandlers end");
+    });
+   
+    runBeforeRender.defer();
+
+   
+    addLateLoadEvent(function() {
+        CustomEvent.fireTop('page_loaded_fully');
+    });
+    
+    // run all of the addLoad and addLateLoad functions
+	// last deferred include runs the on after all loaded functions
+	// see functions_bootstrap.js::runAfterAllLoaded for details on why we cannot defer execution of runAfterAllLoaded on IE6
+	//    (hint: it is due to using the window.onload event to run the addRenderEvents and addLoadEvents in IE6)
+	if (!isMSIE6)
+	    runAfterAllLoaded.defer();
+	else
+	    runAfterAllLoaded();</script><script type="application/xml" id="glide:page_timing_div"><img width="12" title="Response time(ms): #{RESP}, network: #{NETW}, browser: #{REND}, server: #{SERV}" src="images/response_time.gifx" class="pointerhand" height="12"></img><span class="timing_span" style="display:none">Response time(ms): #{RESP}, network: #{NETW}, server: #{SERV},&nbsp;<a class="timing_span">browser: #{REND}</a><span style="position:relative; width: 1px;">&nbsp;<span style="position:absolute; bottom:0px; right:0px"><span id="page_timing_details"></span><a><div>&nbsp;</div></a></span></span></span></script><script type="application/xml" id="glide:page_timing_details"><div class="timing_details">#{details}</div></script><script type="application/xml" id="glide:page_timing_detail_line"><div class="timing_detail_line #{has_children}" data-children="#{child_count}">#{HTML:name}: #{ms}
+         #{children}</div></script><script type="application/xml" id="glide:page_timing_child_line"><div class="timing_detail_line timing_detail_line_child">#{HTML:name}: #{ms}</div></script><script type="text/javascript">var g_serverTime = parseInt("229") + parseInt("0");
+            var g_logClientViewRoles = "";
+
+			// do not do this for the navigation menu
+            if (window.name != 'gsft_nav') {
+				 addAfterPageLoadedEvent(function() {
+					 if (window.performance)
+						setTimeGraph();
+					 else 
+						firePageTimer();
+				 });
+			 }
+			 
+			function setTimeGraph() {
+				if (window.performance.timing.loadEventEnd > 0)
+			 		firePageTimer();
+			 	else 
+			 		setTimeout(setTimeGraph, 300);
+			 }
+			 
+			function firePageTimer() {
+				 if (window.performance) {
+				 	var p = performance.timing;
+				 	CustomEvent.fire('page_timing', { name: 'SERV', ms: (p.responseEnd - p.requestStart)});
+				 	CustomEvent.fire('page_timing', { name: 'REND', ms: (p.loadEventEnd - p.responseEnd) });
+				 	CustomEvent.fire('page_timing_network', { name: 'NETW', ms: (p.responseEnd - p.navigationStart) });
+				 } else {
+				    CustomEvent.fire('page_timing', { name: 'SERV', ms: g_serverTime });
+					CustomEvent.fire('page_timing', { name: 'REND', startTime: g_loadTime });
+					CustomEvent.fire('page_timing_network', { name: 'NETW', loadTime: g_loadTime });
+				 }
+			 
+			 	CustomEvent.fire('page_timing_show', { show: 'false' });var o = {};
+	      o.types = {};o.types['SECT'] = true;o.types['RLV2'] = true;o.types['UIOL'] = true;o.types['CSOL'] = true;
+	
+	      o.transaction_id = '84b37093db007e00ea83f70dbf9619f9';
+	      o.table_name = '';
+	      o.form_name = 'sys_report_display';
+	      o.view_id = 'Default view';
+	      o.win = window;
+	      CustomEvent.fire('page_timing_client', o);}
+			 
+            // The following line is used to set the time when we start requesting a new page
+            Event.observe(window, 'beforeunload', function() {
+				new CookieJar().put('g_startTime', new Date().getTime());
+                CustomEvent.fireTop('request_start', document);
+            });
+
+            // simple pages fire this (stats.do, etc.)
+            CustomEvent.observe('simple_page.unload', function() {
+				new CookieJar().put('g_startTime', new Date().getTime());
+            }); 
+
+            // indicate we have completed the request (used by RequestManager.js for cancel widget)
+            addLoadEvent(function() {
+            	CustomEvent.fireTop("request_complete", window.location);
+            });</script><div id="page_timing_div" class="timingDiv" style="visibility: visible;"><img width="12" title="Response time(ms): 5383, network: 0, browser: 2093, server: 3290" src="images/response_time.gifx" class="pointerhand" height="12"><span class="timing_span" style="display:none">Response time(ms): 5383, network: 0, server: 3290,&nbsp;<a class="timing_span">browser: 2093</a><span style="position:relative; width: 1px;">&nbsp;<span style="position:absolute; bottom:0px; right:0px"><span id="page_timing_details"></span><a><div>&nbsp;</div></a></span></span></span></div></body></html>

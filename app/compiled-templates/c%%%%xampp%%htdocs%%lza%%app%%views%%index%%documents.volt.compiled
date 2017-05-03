@@ -1,0 +1,38 @@
+<head>
+    <title>Dokumenti</title>
+
+    <?= $this->assets->outputCss() ?>
+    <?= $this->assets->outputJs() ?>
+</head>
+<body  onload="activeMenu('<?= $active ?>')">
+  <?= $this->partial('index/header') ?>
+  <div class="main_list">
+    <div class="main news_main">
+        <div class="news_list">
+          <div class="news">
+            <h2>Dokumenti</h2>
+            <table>
+              <?php foreach ($documents as $document) { ?>
+                <tr>
+                  <td>
+                    <span><a href="/document/<?= $document->id ?>"><?= $document->name ?></a></span>
+                  </td>
+                </tr>
+              <?php } ?>
+            </table>
+          </div>
+        </div>
+    </div>
+    <div class="social">
+      <div class="social_tab">
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flatvijaszinatnuakademija&tabs=timeline&width=280&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="280" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      </div>
+      <br>
+      <div class="social_tab">
+        <a class="twitter-timeline"
+          <a class="twitter-timeline" data-width="280" data-height="300" href="https://twitter.com/LZA_LV">National Park Tweets - Curated tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+  </div>
+  <?= $this->partial('index/footer') ?>
+</body>
